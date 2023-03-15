@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "onebeastchris.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PlayerManagerMixin",
+    "ServerConfigEntryMixin$ServerConfigEntryInvoker",
+    "ServerConfigListMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

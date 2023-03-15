@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "visitors",
+	"version": "${version}",
+	"name": "visitors",
+	"description": "This mod allows people who are not whitelisted to join the server in spectator mode",
+	"authors": [
+		"onebeastchris"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/a_119.3test/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"onebeastchris.visitors"
+		]
+	},
+	"mixins": [
+		"visitors.main.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.14",
+		"minecraft": "~1.19.3",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

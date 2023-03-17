@@ -20,8 +20,10 @@ public class PlayerDataUtil {
     }
 
     public static void changeStatus(GameProfile gameProfile){
-        ServerLeaveEvent.onLeave(visitorMap.get(gameProfile), gameProfile);
-        visitorMap.remove(gameProfile);
+        if (visitorMap.containsKey(gameProfile)) {
+            ServerLeaveEvent.onLeave(visitorMap.get(gameProfile), gameProfile);
+            visitorMap.remove(gameProfile);
+        }
     }
     public static boolean isVisitor(GameProfile gameProfile){
         return visitorMap.containsKey(gameProfile);

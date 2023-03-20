@@ -1,6 +1,7 @@
 # visitors
 A fabric mod allowing non-whitelisted players to check out the server in spectator mode before applying. 
 
+Modrinth: https://modrinth.com/mod/visitors
 
 Features:
 - allows players not on the whitelist to join in spectator mode

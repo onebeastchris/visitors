@@ -1,4 +1,8 @@
-# visitors
+![modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_64h.png)
+<img src="https://i.imgur.com/iaETp3c.png" alt="" width="200" >
+![fabric-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_64h.png)
+
+## visitors
 A fabric mod allowing non-whitelisted players to check out the server in spectator mode before applying. 
 
 Modrinth: https://modrinth.com/mod/visitors

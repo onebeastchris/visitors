@@ -18,8 +18,8 @@ public class Register {
         ServerLeaveEvent.register();
         Timer.register();
         if (visitors.config.getDiscordCommand()) {
-            // if the "inviteLink" value is beginning with https://discord.gg OR https://discord.com/invite
-            if (visitors.config.getInviteLink().startsWith("https://discord.gg") || visitors.config.getInviteLink().startsWith("https://discord.com/invite")) {
+            // if the "inviteLink" value is not default and if "discordCommand" is true
+            if (!visitors.config.getInviteLink().equals("https://discord.gg/INVITE_LINK") && visitors.config.getDiscordCommand()) {
                 registerCommand();
             }
         }

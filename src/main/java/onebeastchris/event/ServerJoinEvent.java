@@ -25,7 +25,7 @@ public class ServerJoinEvent {
 
                     tempStorage.put(player, new PlayerInfoStorage(
                                     player.getCustomName(),
-                                    player.getWorld(),
+                                    player.getServerWorld(),
                                     new int[]{player.getBlockPos().getX(), player.getBlockPos().getY(), player.getBlockPos().getZ()})
                     );
 

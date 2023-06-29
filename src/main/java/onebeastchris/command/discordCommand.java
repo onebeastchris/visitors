@@ -9,25 +9,25 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import onebeastchris.visitors;
 
+import java.util.function.Supplier;
+
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class discordCommand {
     public static LiteralCommandNode register(CommandDispatcher<ServerCommandSource> dispatcher) {
         return dispatcher.register(
-                literal("discord").executes(context -> {
-                    return discordCommand(context.getSource());
-                }));
+                literal("discord").executes(context -> discordCommand(context.getSource())));
     }
 
     public static int discordCommand(ServerCommandSource source) {
-        Text initialMessage = Text.of(visitors.config.getDiscordInviteMessage());
-        Text link = Text.of("[" + visitors.config.getInviteLink() + "]");
-        MutableText mutableText = link.copy().styled((style) -> {
-            return style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, visitors.config.getInviteLink()));
-        });
-        mutableText.setStyle(mutableText.getStyle().withColor(Formatting.GOLD));
+        Supplier<Text> initialText = () -> Text.of(visitors.config.getDiscordInviteMessage());
+        Supplier<Text> mutableText = () -> {
+            Text link = Text.of("[" + visitors.config.getInviteLink() + "]");
+            MutableText text = link.copy().styled((style) -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, visitors.config.getInviteLink())));
+            return text.setStyle(text.getStyle().withColor(Formatting.GOLD));
+        };
 
-        source.sendFeedback(initialMessage, false);
+        source.sendFeedback(initialText, false);
         source.sendFeedback(mutableText, false);
 
         return 1;

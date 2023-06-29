@@ -19,4 +19,4 @@ Notes:
 - banned players can't join, duh
 - WIP: i intend to (at some point) add a adventure-mode-like visitor mode, so players can interact with other players while not being able to interact with the world
 
-Currently supported versions: 1.19.3, 1.19.4
+Currently supported versions: 1.19.3, 1.19.4, 1.20, 1.20.1

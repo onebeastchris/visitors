@@ -21,6 +21,8 @@ public class ConfigUtil {
 
     private String discordInviteMessage;
 
+    private boolean useAdventureMode;
+
     public static visitorsConfig config;
 
     public ConfigUtil() {
@@ -47,6 +49,7 @@ public class ConfigUtil {
         this.welcomeVisitorMessage2 = config.getWelcomeVisitorMessage2();
         this.welcomeMemberMessage = config.getWelcomeMemberMessage();
         this.discordInviteMessage = config.getDiscordInviteMessage();
+        this.useAdventureMode = config.getUseAdventureMode();
     }
 
     public boolean getDiscordCommand(){
@@ -57,9 +60,9 @@ public class ConfigUtil {
         return inviteLink;
     }
 
-    //public boolean getUseCustomAdventure(){
-    //    return useCustomAdventure;
-    //}
+    public boolean getUseAdventure(){
+        return useAdventureMode;
+    }
 
     public String getWelcomeVisitorMessage1(){
         return welcomeVisitorMessage1;

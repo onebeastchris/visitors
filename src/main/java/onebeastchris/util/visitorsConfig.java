@@ -35,10 +35,10 @@ public final class visitorsConfig {
             """)
     private String discordInviteMessage = "Join this discord to apply in order to be able to play here:";
 
-    //@Comment("""
-    //        If set to true, players are in a custom adventure mode, where they can't break blocks, place blocks, or use items. If set to false, players are in spectator mode.
-    //        """)
-    //private boolean useCustomAdventureMode = false;
+    @Comment("""
+            If set to true, players are in adventure mode. If set to false, players are in spectator mode.
+            """)
+    private boolean useAdventureMode = false;
 
     public String getWelcomeMemberMessage(){
         return memberWelcomeMessage;
@@ -60,9 +60,9 @@ public final class visitorsConfig {
         return discordInviteLink;
     }
 
-    //public boolean getUseCustomAdventure(){
-    //    return useCustomAdventureMode;
-    //}
+    public boolean getUseAdventureMode(){
+        return useAdventureMode;
+    }
 
     public String getDiscordInviteMessage() {
         return discordInviteMessage;

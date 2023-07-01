@@ -20,6 +20,7 @@ public class ServerJoinEvent {
             GameProfile profile = player.getGameProfile();
 
             if (PlayerDataUtil.isVisitor(profile)) {
+                visitors.LOGGER.info(profile.getName() + " joined the server as a visitor.");
                 if (PlayerDataUtil.isVisitor(profile)) {
                     PlayerDataUtil.addPlayer(profile, player);
 
@@ -33,7 +34,7 @@ public class ServerJoinEvent {
                     player.setCustomName(Text.of("Visitor: " + player.getGameProfile().getName()));
                     player.setCustomNameVisible(true);
 
-                    //calling this once to ensure players see... something.
+                    // calling this once to ensure players see... something.
                     player.sendMessage(Text.of(visitors.config.getWelcomeVisitorMessage1()), true);
                 }
             }

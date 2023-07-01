@@ -17,7 +17,7 @@ public class Register {
         ServerJoinEvent.register();
         ServerLeaveEvent.register();
         Timer.register();
-        if (visitors.config.getDiscordCommand()) {
+        if (visitors.config.getDiscordCommand() && !visitors.config.getInviteLink().equals("https://discord.gg/INVITE_LINK")) {
             registerCommand();
         }
     }

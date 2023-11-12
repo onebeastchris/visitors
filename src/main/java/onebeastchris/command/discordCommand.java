@@ -20,15 +20,15 @@ public class discordCommand {
     }
 
     public static int discordCommand(ServerCommandSource source) {
-        Supplier<Text> initialText = () -> Text.of(visitors.config.getDiscordInviteMessage());
-        Supplier<Text> mutableText = () -> {
+        Supplier<Text> discordInviteMessage = () -> Text.of(visitors.config.getDiscordInviteMessage());
+        Supplier<Text> discordLink = () -> {
             Text link = Text.of("[" + visitors.config.getInviteLink() + "]");
             MutableText text = link.copy().styled((style) -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, visitors.config.getInviteLink())));
             return text.setStyle(text.getStyle().withColor(Formatting.GOLD));
         };
 
-        source.sendFeedback(initialText, false);
-        source.sendFeedback(mutableText, false);
+        source.sendFeedback(discordInviteMessage, false);
+        source.sendFeedback(discordLink, false);
 
         return 1;
     }

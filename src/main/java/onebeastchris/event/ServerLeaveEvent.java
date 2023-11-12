@@ -24,18 +24,15 @@ public class ServerLeaveEvent {
 
     public static void onLeave(ServerPlayerEntity player, GameProfile profile){
         PlayerDataUtil.removeVisitor(profile);
-        PlayerInfoStorage storage = ServerJoinEvent.tempStorage.get(player);
+        PlayerInfoStorage storage = ServerJoinEvent.tempStorage.remove(player);
 
-        int x = storage.position()[0];
-        int y = storage.position()[1];
-        int z = storage.position()[2];
+        double x = storage.position().getX();
+        double y = storage.position().getY();
+        double z = storage.position().getZ();
 
         player.teleport(storage.world(), x, y, z, 0, 0);
         player.changeGameMode(GameMode.DEFAULT);
         player.sendMessage(Text.of(visitors.config.getWelcomeMemberMessage()), true);
         player.setCustomName(storage.name());
-
-        PlayerDataUtil.removeVisitor(profile);
-        ServerJoinEvent.tempStorage.remove(player);
     }
 }

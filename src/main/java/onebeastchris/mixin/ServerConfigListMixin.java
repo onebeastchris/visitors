@@ -17,14 +17,14 @@ public abstract class ServerConfigListMixin {
 
     @Inject(method = "add", at = @At("TAIL"))
     private void add(ServerConfigEntry<?> entry, CallbackInfo ci) {
-            if (entry instanceof WhitelistEntry whitelistEntry) {
-                try {
-                    GameProfile profile = ((ServerConfigEntryMixin.ServerConfigEntryInvoker<GameProfile>) whitelistEntry).callGetKey();
-                    visitors.LOGGER.debug("WhitelistEntry: " + profile.getName());
-                    PlayerDataUtil.changeStatus(profile);
-                } catch (Exception e) {
-                    visitors.LOGGER.error("Error getting GameProfile from WhitelistEntry", e);
-                }
+        if (entry instanceof WhitelistEntry whitelistEntry) {
+            try {
+                GameProfile profile = ((ServerConfigEntryMixin.ServerConfigEntryInvoker<GameProfile>) whitelistEntry).callGetKey();
+                visitors.LOGGER.debug("WhitelistEntry: " + profile.getName());
+                PlayerDataUtil.changeStatus(profile);
+            } catch (Exception e) {
+                visitors.LOGGER.error("Error getting GameProfile from WhitelistEntry", e);
             }
+        }
     }
 }

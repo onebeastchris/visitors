@@ -8,10 +8,9 @@
 		"onebeastchris"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/onebeastchris/visitors"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/a_119.3test/icon.png",
 	"environment": "*",
 	"entrypoints": {

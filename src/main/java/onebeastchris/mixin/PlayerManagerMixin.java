@@ -11,7 +11,7 @@ public class PlayerManagerMixin {
 	@Redirect(method = "checkCanJoin", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;isWhitelisted(Lcom/mojang/authlib/GameProfile;)Z"))
 	private boolean visitors$isWhitelisted(PlayerManager instance, GameProfile profile) {
 		if (!instance.isWhitelisted(profile)) {
-			PlayerDataUtil.addVisitor(profile, null);
+			PlayerDataUtil.addFutureVisitor(profile);
 		}
 		return true;
 	}

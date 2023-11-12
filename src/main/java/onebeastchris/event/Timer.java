@@ -21,7 +21,10 @@ public class Timer {
     }
     public static void sendMessageToVisitors(String message){
         for (ServerPlayerEntity player : PlayerDataUtil.visitorMap.values()){
-            player.sendMessage(Text.of(message), true);
+            // Could happen if unlucky, let's not crash the server.
+            if (player != null) {
+                player.sendMessage(Text.of(message), true);
+            }
         }
     }
 }

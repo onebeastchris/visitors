@@ -10,12 +10,11 @@ public class PlayerDataUtil {
 
     public static HashMap<GameProfile, ServerPlayerEntity> visitorMap = new HashMap<>();
 
-    public static void addVisitor(GameProfile gameProfile, ServerPlayerEntity player){
-        visitorMap.put(gameProfile, player);
+    public static void addFutureVisitor(GameProfile gameProfile){
+        visitorMap.put(gameProfile, null);
     }
 
-    public static void addPlayer(GameProfile gameProfile, ServerPlayerEntity player){
-        visitorMap.remove(gameProfile, null);
+    public static void addVisitor(GameProfile gameProfile, ServerPlayerEntity player){
         visitorMap.put(gameProfile, player);
     }
 

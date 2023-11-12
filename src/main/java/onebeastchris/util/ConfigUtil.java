@@ -10,7 +10,6 @@ import org.spongepowered.configurate.hocon.HoconConfigurationLoader;
 
 public class ConfigUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger("visitors");
-
     private boolean discordCommand;
     private String inviteLink;
     //private boolean useCustomAdventure;

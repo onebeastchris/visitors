@@ -21,23 +21,21 @@ public class ServerJoinEvent {
 
             if (PlayerDataUtil.isVisitor(profile)) {
                 visitors.LOGGER.info(profile.getName() + " joined the server as a visitor.");
-                if (PlayerDataUtil.isVisitor(profile)) {
-                    PlayerDataUtil.addPlayer(profile, player);
+                PlayerDataUtil.addVisitor(profile, player);
 
-                    tempStorage.put(player, new PlayerInfoStorage(
-                                    player.getCustomName(),
-                                    player.getServerWorld(),
-                                    new int[]{player.getBlockPos().getX(), player.getBlockPos().getY(), player.getBlockPos().getZ()})
-                    );
+                tempStorage.put(player, new PlayerInfoStorage(
+                                player.getPlayerListName(),
+                                player.getServerWorld(),
+                                player.getPos())
+                );
 
-                    player.changeGameMode(GameMode.SPECTATOR);
-                    player.setCustomName(Text.of("Visitor: " + player.getGameProfile().getName()));
-                    player.setCustomNameVisible(true);
+                player.changeGameMode(GameMode.SPECTATOR);
+                player.setCustomName(Text.of("Visitor: " + player.getGameProfile().getName()));
+                player.setCustomNameVisible(true);
 
-                    // calling this once to ensure players see... something.
-                    player.sendMessage(Text.of(visitors.config.getWelcomeVisitorMessage1()), true);
-                }
+                // calling this once to ensure players see... something.
+                player.sendMessage(Text.of(visitors.config.getWelcomeVisitorMessage1()), true);
             }
-    });
+        });
     }
 }

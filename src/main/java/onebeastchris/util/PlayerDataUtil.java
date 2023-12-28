@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class PlayerDataUtil {
 
-    public static HashMap<GameProfile, ServerPlayerEntity> visitorMap = new HashMap<>();
+    public static final HashMap<GameProfile, ServerPlayerEntity> visitorMap = new HashMap<>();
 
     public static void addFutureVisitor(GameProfile gameProfile){
         visitorMap.put(gameProfile, null);

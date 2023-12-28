@@ -1,7 +1,6 @@
 package onebeastchris.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.tree.LiteralCommandNode;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.MutableText;
@@ -14,12 +13,11 @@ import java.util.function.Supplier;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class discordCommand {
-    public static LiteralCommandNode register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        return dispatcher.register(
-                literal("discord").executes(context -> discordCommand(context.getSource())));
+    public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+        dispatcher.register(literal("discord").executes(context -> run(context.getSource())));
     }
 
-    public static int discordCommand(ServerCommandSource source) {
+    public static int run(ServerCommandSource source) {
         Supplier<Text> discordInviteMessage = () -> Text.of(visitors.config.getDiscordInviteMessage());
         Supplier<Text> discordLink = () -> {
             Text link = Text.of("[" + visitors.config.getInviteLink() + "]");

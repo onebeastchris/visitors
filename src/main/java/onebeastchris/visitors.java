@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 public class visitors implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("visitors");
 
-	public static ConfigUtil config = new ConfigUtil();
+	public static final ConfigUtil config = new ConfigUtil();
 
 	@Override
 	public void onInitialize() {

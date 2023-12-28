@@ -19,6 +19,7 @@ public abstract class ServerConfigListMixin {
     private void add(ServerConfigEntry<?> entry, CallbackInfo ci) {
         if (entry instanceof WhitelistEntry whitelistEntry) {
             try {
+                //noinspection unchecked
                 GameProfile profile = ((ServerConfigEntryMixin.ServerConfigEntryInvoker<GameProfile>) whitelistEntry).callGetKey();
                 visitors.LOGGER.debug("WhitelistEntry: " + profile.getName());
                 PlayerDataUtil.changeStatus(profile);

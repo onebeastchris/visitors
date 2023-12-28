@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class ServerJoinEvent {
 
     public static final HashMap<ServerPlayerEntity, PlayerInfoStorage> tempStorage = new HashMap<>();
+
     public static void register() {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer().networkHandler.player;
@@ -21,6 +22,8 @@ public class ServerJoinEvent {
 
             if (PlayerDataUtil.isVisitor(profile)) {
                 visitors.LOGGER.info(profile.getName() + " joined the server as a visitor.");
+
+                // update visitor map with player value
                 PlayerDataUtil.addVisitor(profile, player);
 
                 tempStorage.put(player, new PlayerInfoStorage(
